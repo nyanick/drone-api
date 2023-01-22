@@ -13,7 +13,7 @@ enum Model {Lightweight, Middleweight, Cruiserweight, Heavyweight}
 enum State {IDLE, LOADING, LOADED, DELIVERING, DELIVERED, RETURNING}
 
 @Entity
-@Table(name="drone")
+@Table(name="drones")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -37,8 +37,7 @@ public class Drone {
     @Enumerated(EnumType.STRING)
     private State state;
 
-    @OneToMany(mappedBy = "medication", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "drone", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Medication> medications;
 
 }

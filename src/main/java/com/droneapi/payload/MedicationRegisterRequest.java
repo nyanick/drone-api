@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class RegisterMedicationRequest {
+public class MedicationRegisterRequest {
     @NotBlank
     @NotNull
     @Size(min = 2, message = "Invalid code, too short")
@@ -23,4 +23,6 @@ public class RegisterMedicationRequest {
     private double weight;
 
     private String image;
+
+    private String drone_serial_num;
 }
