@@ -18,11 +18,9 @@ public class MedicationRegisterRequest {
     @NotNull
     @Pattern(regexp = "^[A-z0-9_]+$" , message = "Name should not contain special characters")
     private String name;
-    @NotBlank
     @NotNull
+    @DecimalMin("0.1")
     private double weight;
 
     private String image;
-
-    private String drone_serial_num;
 }

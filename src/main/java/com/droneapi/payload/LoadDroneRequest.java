@@ -23,9 +23,7 @@ public class LoadDroneRequest {
      */
     private List<String> existing_medication_codes;
 
-    private List<MedicationRegisterRequest> new_medications;
-
-    public List<MedicationObj> new_medications_to_be_added;
+    public List<MedicationObj> new_medications;
 }
 
 

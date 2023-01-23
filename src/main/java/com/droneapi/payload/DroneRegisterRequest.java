@@ -1,9 +1,6 @@
 package com.droneapi.payload;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,13 +18,11 @@ public class DroneRegisterRequest {
     @NotBlank
     @NotNull
     private String model;
-    @NotBlank
     @NotNull
-    @Max(value = 500, message = "The maximum weight limit is 500")
+    @DecimalMax("500.0") @DecimalMin("0.0")
     private double weightLimit;
-    @NotBlank
     @NotNull
-    @Max(value = 100, message = "Invalid battery percentage value")
+    @DecimalMax("100.0") @DecimalMin("0.0")
     private double battery;
     @NotBlank
     @NotNull

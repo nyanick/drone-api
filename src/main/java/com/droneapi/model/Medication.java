@@ -30,8 +30,4 @@ public class Medication {
 
     private String image;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "drone_serial_num", nullable = false)
-    private Drone drone;
-
 }

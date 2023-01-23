@@ -23,13 +23,13 @@ public class Scheduler {
     /**
      * This method would be trigger every 2 minutes
      */
-    @Scheduled(cron = "2 * * * *")
+    @Scheduled(cron = "2 * * * * ?")
     public void CheckDroneBattery(){
         try {
             List<Drone> drones = droneRepository.findAll();
             logger.info("---------------------------------- Checking Drone battery level ----------------------------------");
             for (Drone drone: drones) {
-                logger.info("Battery Serial Number : "+ drone.getSerialNumber() +"\tBattery Level : %.2f %",drone.getBattery());
+                logger.info("Battery Serial Number : "+ drone.getSerialNumber() +"\tBattery Level : "+drone.getBattery() + " %");
             }
         }
         catch (Exception ex){

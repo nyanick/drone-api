@@ -39,6 +39,18 @@ public class DroneController {
         return new ResponseEntity<>(drone, HttpStatus.OK);
     }
 
+    @GetMapping(path= "/check_battery_level/{serial_numuber}")
+    public ResponseEntity<?> checkBatteryLevel(@PathVariable String serial_numuber) {
+        Drone drone = droneService.getDrone(serial_numuber);
+        return new ResponseEntity<>(drone.getBattery(), HttpStatus.OK);
+    }
+
+    @GetMapping(path= "/check_drone_medications/{serial_numuber}")
+    public ResponseEntity<?> checkDroneMedication(@PathVariable String serial_numuber) {
+        Drone drone = droneService.getDrone(serial_numuber);
+        return new ResponseEntity<>(drone.getMedications(), HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<?> getDrones() {
         List<Drone> drones = droneService.getAllDrones();
